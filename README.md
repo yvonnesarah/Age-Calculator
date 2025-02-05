@@ -22,10 +22,10 @@ This project was built using:
 No installation is required. Simply open the application in your web browser.
 
 ## 📚 Usage
-* Open the Age Calculator web application.
-* Enter your birthdate in the provided input field.
-* Click the "Calculate Age" button.
-* View your age displayed in years, months, and days.
+1. Open the Age Calculator web application.
+2. Enter your birthdate in the provided input field.
+3. Click the "Calculate Age" button.
+4. View your age displayed in years, months, and days.
 
 ## 🔗 Live Demo & Repository
 Application can be viewed here: 
