@@ -1,64 +1,73 @@
+/* Reset default margin and set padding for spacing */
 body {
   margin: 0;
   padding: 20px;
-  font-family: "Montserrat", sans-serif;
-  background-color: #f7f7f7;
+  font-family: "Montserrat", sans-serif; /* Set Montserrat as the font */
+  background-color: #f7f7f7; /* Light gray background for the page */
 }
 
+/* Styling for the main container */
 .container {
-  background-color: #8254C7;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 5px;
-  margin-top: 50px;
+  background-color: #8254C7; /* Purple background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+  padding: 20px; /* Adds space inside the container */
+  max-width: 600px; /* Limits width to 600px */
+  margin: 0 auto; /* Centers the container horizontally */
+  border-radius: 5px; /* Rounds the corners */
+  margin-top: 50px; /* Adds space at the top */
 }
 
+/* Styling for the heading */
 h1 {
-  font-size: 36px;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: white;
+  font-size: 36px; /* Large font size */
+  text-align: center; /* Centers the text */
+  margin-top: 0; /* Removes top margin */
+  margin-bottom: 20px; /* Adds space below */
+  color: white; /* White text color */
 }
 
+/* Styling for the form container */
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Uses flexbox for alignment */
+  flex-direction: column; /* Stacks elements vertically */
+  align-items: center; /* Centers elements horizontally */
 }
 
+/* Styling for the label */
 label {
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: bold; /* Makes text bold */
+  margin-bottom: 10px; /* Adds space below */
 }
 
+/* Styling for the input field */
 input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
+  padding: 8px; /* Adds padding inside the input */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounds the corners */
+  width: 100%; /* Full width */
+  max-width: 300px; /* Limits width to 300px */
 }
 
+/* Styling for the button */
 button {
-  background-color: #000000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #000000; /* Black background */
+  color: white; /* White text */
+  border: none; /* Removes border */
+  padding: 10px 20px; /* Adds padding */
+  border-radius: 5px; /* Rounds the corners */
+  margin-top: 10px; /* Adds space above */
+  cursor: pointer; /* Changes cursor to pointer */
+  transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
+/* Button hover effect */
 button:hover {
-  background-color: #000080;
+  background-color: #000080; /* Changes background to navy blue on hover */
 }
 
+/* Styling for the result text */
 #result {
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
+  margin-top: 20px; /* Adds space above */
+  font-size: 24px; /* Larger font size */
+  font-weight: bold; /* Makes text bold */
 }

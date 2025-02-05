@@ -2,27 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-      <!--Added meta viewport for mobile and monitor accessibility-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Ensures proper rendering and touch zooming on different devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets compatibility mode for Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Age Calculator</title>
-      <!--CSS Stylesheet-->
+    
+    <!-- Linking external CSS file for styling -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-      <!--Container-->
+    <!-- Main container for the age calculator -->
     <div class="container">
         <h1>Age Calculator</h1>
-          <!--Form-->
+        
+        <!-- Form section for user input -->
         <div class="form">
+            <!-- Label for the date input field -->
             <label for="birthday">Enter your date of birth</label>
+            <!-- Date input field for selecting birth date -->
             <input type="date" id="birthday" name="birthday">
-              <!--Calculate Age Button-->
+            
+            <!-- Button to trigger age calculation -->
             <button id="btn">Calculate Age</button>
+            
+            <!-- Paragraph to display the calculated age -->
             <p id="result"></p>
         </div>
     </div>
-  <!--JavaScript-->
+
+    <!-- Linking external JavaScript file for functionality -->
     <script src="./assets/js/index.js"></script>
 </body>
 </html>
