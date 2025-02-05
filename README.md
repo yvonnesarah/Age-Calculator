@@ -1,47 +1,50 @@
 # Age-Calculator
 
-## Description
-The Age Calculator Web Project is a simple and interactive web application that allows users to calculate their age based on their date of birth. The project is built using HTML, CSS and JavaScript, and provides an intuitive user interface for inputting dates and displaying the calculated age in days, months and years.
+## 📌 Description
+The Age Calculator is a simple and interactive web application that allows users to determine their age based on their date of birth. Built using HTML, CSS, and JavaScript, this project provides an intuitive user interface for inputting dates and accurately calculates age in years, months, and days.
 
-## Prerequisites
+## 🛠 Prerequisites
 N/A
 
-## Features
+## 📋 Criteria
 * User-friendly interface for inputting birthdate.
-* Accurate age calculation in days, months and years.
-* Responsive design for mobile and desktop use.
-* Clear display of the calculated age.
+* Accurate age calculation in years, months, and days.
+* Responsive design, optimized for both mobile and desktop devices.
+*  Clear and concise display of the calculated age.
 
-## Technologies Used
-Built with:
+## 💻 Technologies Used
+This project was built using:
 * HTML
 * CSS
 * JavaScript
 
-## Installation
-N/A
+## 🚀 Installation
+No installation is required. Simply open the application in your web browser.
 
-## Usage
-* Open the Age Calculator web application in your browser.
-* Enter your birthdate in the provided input fields.
+## 📚 Usage
+* Open the Age Calculator web application.
+* Enter your birthdate in the provided input field.
 * Click the "Calculate Age" button.
-* View your age displayed in days, months and years.
+* View your age displayed in years, months, and days.
 
-## Project Link
-Application can can be viewed here: 
+## 🔗 Live Demo & Repository
+Application can be viewed here: 
 * [Live](https://yvonnesarah.github.io/Age-Calculator/)
 
 * [Repository](https://github.com/yvonnesarah/Age-Calculator)
 
-## Screenshot(S)
-Age Calculator
+## 🖼 Screenshot(S)
+Age Calculator Interface
 ![Screenshot](assets/images/age-calculator.png "Age Calculator")
 
-Age Calculator Example
+Example Calculation
 ![Screenshot](assets/images/age-calculator-example.png "Age Calculator Example")
 
-## Credit
+## 👥 Credit
 N/A
 
-## Licence
-Please refer to the LICENSE in the repo.
+## 📜 License
+This project is open-source. For licensing details, please refer to the LICENSE file in the repository.
+
+## 📬 Contact
+You can reach me at 📧 yvonneadedeji.sarah@gmail.com.
