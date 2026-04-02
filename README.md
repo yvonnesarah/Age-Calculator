@@ -6,7 +6,7 @@ The Age Calculator is a simple and interactive web application that allows users
 ## 🛠 Prerequisites
 N/A
 
-## 📋 Criteria
+## 📋 Features
 * User-friendly interface for inputting birthdate.
 * Accurate age calculation in years, months, and days.
 * Responsive design, optimized for both mobile and desktop devices.
