@@ -4,7 +4,8 @@
 The Age Calculator is a simple and interactive web application that allows users to determine their age based on their date of birth. Built using HTML, CSS, and JavaScript, this project provides an intuitive user interface for inputting dates and accurately calculates age in years, months, and days.
 
 ## 🛠 Prerequisites
-N/A
+* A modern web browser (Chrome, Firefox, Edge, Safari)
+* Internet connection (for accessing the live demo)
 
 ## 📋 Features
 * User-friendly interface for inputting birthdate.
@@ -40,8 +41,15 @@ Age Calculator Interface
 Example Calculation
 ![Screenshot](assets/images/age-calculator-example.png "Age Calculator Example")
 
+## 🚀 Future Improvements
+* 🌙 Dark/Light Mode Toggle – Allow users to switch between themes for better accessibility.
+* 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens.
+* 🗓 Additional Date Formats – Support more date input formats and validation.
+* 🔔 Birthday Reminders – Option to set alerts or notifications for upcoming birthdays.
+* 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours.
+
 ## 👥 Credit
-N/A
+Designed and developed by Yvonne Adedeji.
 
 ## 📜 License
 This project is open-source. For licensing details, please refer to the LICENSE file in the repository.
