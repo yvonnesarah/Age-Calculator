@@ -86,7 +86,7 @@ function calculateAgeData(birthdayValue) {
   return {
     ageYears, totalDays, totalWeeks, totalHours, totalMinutes, totalSeconds,
     nextBirthday: `${daysToBD}d ${hoursToBD}h ${minutesToBD}m ${secondsToBD}s`,
-    zodiac: `${zodiac.sign} – ${zodiac.traits}`, planetaryAges,
+    zodiac: `${zodiac.sign} – Personality Traits: ${zodiac.traits}`, planetaryAges,
     insights: `Born on a ${dayOfWeek}. You've slept ~${sleepYears}y. Blinked ~${blinkTimes} times.`,
     lifeProgress,
     month: birthdayDate.getMonth() + 1,
