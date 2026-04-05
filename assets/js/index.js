@@ -1,41 +1,79 @@
-// Selecting the button, input field, and result display element from the DOM
 const btnEl = document.getElementById("btn");
 const birthdayEl = document.getElementById("birthday");
 const resultEl = document.getElementById("result");
+const themeToggle = document.getElementById("themeToggle");
+const reminderBtn = document.getElementById("reminderBtn");
 
-// Function to calculate age based on user input
+// 🌙 Dark/Light Mode
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// 🎂 Calculate Age
 function calculateAge() {
-  // Getting the value from the date input field
   const birthdayValue = birthdayEl.value;
 
-  // Checking if the input field is empty
-  if (birthdayValue === "") {
-    alert("Please enter your birthday"); // Alerting user if no date is entered
-  } else {
-    // Calculating age using the getAge function
-    const age = getAge(birthdayValue);
-    // Displaying the calculated age in the result paragraph
-    resultEl.innerText = `Your age is ${age} ${age > 1 ? "years" : "year"} old`;
-  }
-}
-
-// Function to determine the user's age from their birthdate
-function getAge(birthdayValue) {
-  const currentDate = new Date(); // Getting the current date
-  const birthdayDate = new Date(birthdayValue); // Converting input value to a date object
-  let age = currentDate.getFullYear() - birthdayDate.getFullYear(); // Calculating initial age
-  const month = currentDate.getMonth() - birthdayDate.getMonth(); // Checking the month difference
-
-  // Adjusting age if the birthday hasn't occurred yet in the current year
-  if (
-    month < 0 ||
-    (month === 0 && currentDate.getDate() < birthdayDate.getDate())
-  ) {
-    age--; // Reducing age by 1 if the birthday hasn't passed yet
+  if (!birthdayValue) {
+    alert("Please enter your birthday");
+    return;
   }
 
-  return age; // Returning the calculated age
+  const data = getDetailedAge(birthdayValue);
+
+  resultEl.innerHTML = `
+    <p><strong>Age:</strong> ${data.years} years</p>
+    <p>📅 Months: ${data.months}</p>
+    <p>📆 Days: ${data.days}</p>
+    <p>⏰ Hours: ${data.hours}</p>
+    <p>⏱ Minutes: ${data.minutes}</p>
+  `;
 }
 
-// Adding an event listener to the button to trigger the age calculation on click
+// 📊 Detailed Age Breakdown
+function getDetailedAge(birthdayValue) {
+  const now = new Date();
+  const birth = new Date(birthdayValue);
+
+  const diff = now - birth;
+
+  const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+  const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor(diff / (1000 * 60));
+
+  return { years, months, days, hours, minutes };
+}
+
+// 🔔 Birthday Reminder (basic local check)
+reminderBtn.addEventListener("click", () => {
+  const birthdayValue = birthdayEl.value;
+
+  if (!birthdayValue) {
+    alert("Enter your birthday first!");
+    return;
+  }
+
+  localStorage.setItem("birthday", birthdayValue);
+  alert("Birthday reminder set! 🎉 (Works when you revisit the page)");
+});
+
+// Check reminder on load
+window.addEventListener("load", () => {
+  const savedBirthday = localStorage.getItem("birthday");
+
+  if (savedBirthday) {
+    const today = new Date();
+    const birth = new Date(savedBirthday);
+
+    if (
+      today.getDate() === birth.getDate() &&
+      today.getMonth() === birth.getMonth()
+    ) {
+      alert("🎉 Happy Birthday!");
+    }
+  }
+});
+
+// Event Listener
 btnEl.addEventListener("click", calculateAge);
