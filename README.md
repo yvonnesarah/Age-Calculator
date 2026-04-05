@@ -49,6 +49,16 @@ After Design
 * 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens. ✅
 * 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours. ✅
 
+## 🆕 Upcoming Enhancements
+* 🎯 Live Age Counter – Updates age every second, including seconds and minutes. ✅
+* 📅 Next Birthday Countdown – Shows days, hours, minutes, and seconds until next birthday. ✅
+* 🎉 Zodiac Sign + Fun Facts – Displays zodiac sign, personality traits, and famous people born on the same date.✅
+* 🌍 Age on Other Planets – Calculates age on Mercury, Venus, Mars, Jupiter, and Saturn based on orbital periods.✅
+* 📈 Life Stats Dashboard – Shows progress toward estimated lifespan with a visual progress bar. ✅
+* 🧠 Smart Insights – Fun facts such as: “Born on a Monday”, “You’ve slept ~X years”, “You’ve blinked ~X times” ✅
+* 📤 Share Feature – Copy results to clipboard for easy sharing. ✅
+* 🧪 API Integration – Fetches: Famous birthdays on selected date, Historical events on selected date ✅
+
 ## 👥 Credit
 Designed and developed by Yvonne Adedeji.
 
