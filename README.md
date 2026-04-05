@@ -35,18 +35,19 @@ Application can be viewed here:
 * [Repository](https://github.com/yvonnesarah/Age-Calculator)
 
 ## 🖼 Screenshot(S)
+Before Design
+
 Age Calculator Interface
-![Screenshot](assets/images/age-calculator.png "Age Calculator")
+![Screenshot](assets/images/before/age-calculator.png "Age Calculator")
 
 Example Calculation
-![Screenshot](assets/images/age-calculator-example.png "Age Calculator Example")
+![Screenshot](assets/images/before/age-calculator-example.png "Age Calculator Example")
+
+After Design
 
 ## 🚀 Future Improvements
-* 🌙 Dark/Light Mode Toggle – Allow users to switch between themes for better accessibility.
-* 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens.
-* 🗓 Additional Date Formats – Support more date input formats and validation.
-* 🔔 Birthday Reminders – Option to set alerts or notifications for upcoming birthdays.
-* 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours.
+* 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens. ✅
+* 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours. ✅
 
 ## 👥 Credit
 Designed and developed by Yvonne Adedeji.
