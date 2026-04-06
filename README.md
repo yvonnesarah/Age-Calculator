@@ -78,7 +78,7 @@ xample Age Calculator
 * 📈 Life Stats Dashboard – Shows progress toward estimated lifespan with a visual progress bar. ✅
 * 🧠 Smart Insights – Fun facts such as: Day of the week you were born, Estimated years spent sleeping 😴, Approximate number of blinks 👀 ✅
 * 📤 Share Feature – Copy results to clipboard for easy sharing. ✅
-* 🧪 API Integration – Fetches: Famous birthdays on selected date, Historical events on selected date ✅
+* 🧪 API Integration – Fetches: Famous birthdays on selected date ✅
 
 ## 👥 Credit
 Designed and developed by Yvonne Adedeji.
