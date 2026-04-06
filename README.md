@@ -71,12 +71,12 @@ xample Age Calculator
 * 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours. ✅
 
 ## 🆕 Upcoming Enhancements
-* 🎯 Live Age Counter – Updates age every second, including seconds and minutes. ✅
-* 📅 Next Birthday Countdown – Shows days, hours, minutes, and seconds until next birthday. ✅
-* 🎉 Zodiac Sign + Fun Facts – Displays zodiac sign, personality traits, and famous people born on the same date.✅
+* 🎯 Live Age Counter – Continuously updates your age every second, including seconds, minutes, hours, and more.✅
+* 📅 Next Birthday Countdown – Displays a real-time countdown to your next birthday (days, hours, minutes, seconds). ✅
+* 🎉 Zodiac Sign + Fun Facts – Automatically detects your zodiac sign and shows personality traits.✅
 * 🌍 Age on Other Planets – Calculates age on Mercury, Venus, Mars, Jupiter, and Saturn based on orbital periods.✅
 * 📈 Life Stats Dashboard – Shows progress toward estimated lifespan with a visual progress bar. ✅
-* 🧠 Smart Insights – Fun facts such as: “Born on a Monday”, “You’ve slept ~X years”, “You’ve blinked ~X times” ✅
+* 🧠 Smart Insights – Fun facts such as: Day of the week you were born, Estimated years spent sleeping 😴, Approximate number of blinks 👀 ✅
 * 📤 Share Feature – Copy results to clipboard for easy sharing. ✅
 * 🧪 API Integration – Fetches: Famous birthdays on selected date, Historical events on selected date ✅
 
