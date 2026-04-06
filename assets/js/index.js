@@ -49,9 +49,7 @@ function calculateAgeData(birthdayValue) {
   const birthdayDate = new Date(birthdayValue);
   let ageYears = now.getFullYear() - birthdayDate.getFullYear();
   const monthDiff = now.getMonth() - birthdayDate.getMonth();
-  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < birthdayDate.getDate())) {
-    ageYears--;
-  }
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < birthdayDate.getDate())) ageYears--;
 
   const diffMs = now - birthdayDate;
   const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -69,10 +67,7 @@ function calculateAgeData(birthdayValue) {
   const secondsToBD = Math.floor((diffNextBD / 1000) % 60);
 
   const monthDay = `${String(birthdayDate.getMonth()+1).padStart(2,'0')}-${String(birthdayDate.getDate()).padStart(2,'0')}`;
-  const zodiac = zodiacSigns.find(z => {
-    if(z.start > z.end) return monthDay >= z.start || monthDay <= z.end;
-    return monthDay >= z.start && monthDay <= z.end;
-  });
+  const zodiac = zodiacSigns.find(z => z.start > z.end ? monthDay >= z.start || monthDay <= z.end : monthDay >= z.start && monthDay <= z.end);
 
   const planetaryAges = planets.map(p => `${p.name}: ${(ageYears / p.period).toFixed(2)} y`).join(" | ");
 
@@ -86,12 +81,21 @@ function calculateAgeData(birthdayValue) {
   return {
     ageYears, totalDays, totalWeeks, totalHours, totalMinutes, totalSeconds,
     nextBirthday: `${daysToBD}d ${hoursToBD}h ${minutesToBD}m ${secondsToBD}s`,
-    zodiac: `${zodiac.sign} – Personality Traits: ${zodiac.traits}`, planetaryAges,
-    insights: `Born on a ${dayOfWeek}. You've slept ~${sleepYears}y. Blinked ~${blinkTimes} times.`,
+    zodiac: `${zodiac.sign} – Personality Traits: ${zodiac.traits}`,
+    planetaryAges,
+    insights: `Born on a ${dayOfWeek}. You've slept ~${sleepYears}y and blinked ~${blinkTimes} times.`,
     lifeProgress,
     month: birthdayDate.getMonth() + 1,
     day: birthdayDate.getDate()
   };
+}
+
+// ------------------- LIFE PROGRESS COLOR -------------------
+function getLifeProgressColor(progress) {
+  if (progress < 25) return "#4caf50";
+  if (progress < 50) return "#ffeb3b";
+  if (progress < 75) return "#ff9800";
+  return "#f44336";
 }
 
 // ------------------- DAY IN HISTORY API -------------------
@@ -143,30 +147,24 @@ function startLiveCounter() {
     const data = calculateAgeData(birthdayValue);
 
     resultEl.innerText = `Your age is ${data.ageYears} ${data.ageYears > 1 ? "years" : "year"} old`;
-    breakdownEl.innerHTML = `
-      Days: ${data.totalDays} | Weeks: ${data.totalWeeks} | Hrs: ${data.totalHours} |
-      Mins: ${data.totalMinutes} | Secs: ${data.totalSeconds}
-    `;
+    breakdownEl.innerHTML = `Days: ${data.totalDays} | Weeks: ${data.totalWeeks} | Hours: ${data.totalHours} | Minutes: ${data.totalMinutes} | Seconds: ${data.totalSeconds}`;
     zodiacEl.innerText = `Zodiac: ${data.zodiac}`;
     planetaryEl.innerText = `Age on planets: ${data.planetaryAges}`;
     insightsEl.innerText = `Fun insights: ${data.insights}`;
     nextBirthdayEl.innerText = `Next birthday in: ${data.nextBirthday} 🎉`;
-    lifeProgressEl.style.width = `${data.lifeProgress}%`;
 
-    // Fetch API data once after user selects date
-    if (interval && (data.totalSeconds % 60 === 0)) {
-      fetchFamousBirthdays(data.month, data.day);
-      fetchHistoryEvents(data.month, data.day);
-    }
+    lifeProgressEl.style.width = `${data.lifeProgress}%`;
+    lifeProgressEl.style.background = getLifeProgressColor(data.lifeProgress);
   }, 1000);
 }
 
 // ------------------- BUTTON EVENTS -------------------
 btnEl.addEventListener("click", () => {
   if (!birthdayEl.value) { alert("Please enter your date."); return; }
+
   startLiveCounter();
 
-  // fetch API immediately
+  // Fetch API once per date selection
   const data = calculateAgeData(birthdayEl.value);
   fetchFamousBirthdays(data.month, data.day);
   fetchHistoryEvents(data.month, data.day);
