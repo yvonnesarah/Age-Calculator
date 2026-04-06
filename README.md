@@ -64,6 +64,7 @@ Age Calculator Interface
 ![Screenshot](assets/images/after/age-calculator.png "Age Calculator")
 
 Example Age Calculator
+
 ![Screenshot](assets/images/after/age-calculator-example.png "Age Calculator Example")
 
 ## 🚀 Future Improvements
