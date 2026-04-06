@@ -45,6 +45,9 @@ Example Calculation
 
 After Design
 
+Age Calculator Interface
+![Screenshot](assets/images/after/age-calculator.png "Age Calculator")
+
 ## 🚀 Future Improvements
 * 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens. ✅
 * 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours. ✅
