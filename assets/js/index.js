@@ -9,8 +9,6 @@ const nextBirthdayEl = document.getElementById("nextBirthday");
 const lifeProgressEl = document.getElementById("lifeProgress");
 const shareBtn = document.getElementById("shareBtn");
 
-const famousBirthdaysUl = document.getElementById("famousBirthdays");
-
 let interval;
 
 // ------------------- ZODIAC & PLANETS -------------------
@@ -35,11 +33,6 @@ const planets = [
   { name: "Mars ♂", period: 1.88 },
   { name: "Jupiter ♃", period: 11.86 },
   { name: "Saturn ♄", period: 29.46 },
-];
-
-const monthNames = [
-  "january","february","march","april","may","june",
-  "july","august","september","october","november","december"
 ];
 
 // ------------------- AGE CALCULATION -------------------
@@ -83,9 +76,7 @@ function calculateAgeData(birthdayValue) {
     zodiac: `${zodiac.sign} – Personality Traits: ${zodiac.traits}`,
     planetaryAges,
     insights: `Born on a ${dayOfWeek}. You've slept ~${sleepYears}y and blinked ~${blinkTimes} times.`,
-    lifeProgress,
-    month: birthdayDate.getMonth() + 1,
-    day: birthdayDate.getDate()
+    lifeProgress
   };
 }
 
@@ -95,26 +86,6 @@ function getLifeProgressColor(progress) {
   if (progress < 50) return "#ffeb3b";
   if (progress < 75) return "#ff9800";
   return "#f44336";
-}
-
-// ------------------- DAY IN HISTORY API (FAMOUS BIRTHDAYS ONLY) -------------------
-async function fetchFamousBirthdays(month, day) {
-  famousBirthdaysUl.innerHTML = "<li>Loading famous birthdays...</li>";
-  try {
-    const monthName = monthNames[month - 1];
-    const res = await fetch(`https://api.dayinhistory.dev/v1/births/${monthName}/${day}/`);
-    const data = await res.json();
-    famousBirthdaysUl.innerHTML = "";
-    if (data.results?.length) {
-      data.results.forEach(item => {
-        famousBirthdaysUl.innerHTML += `<li>${item.birth_year}: <strong>${item.name}</strong> — ${item.description}</li>`;
-      });
-    } else {
-      famousBirthdaysUl.innerHTML = "<li>No famous birthdays found for this date.</li>";
-    }
-  } catch {
-    famousBirthdaysUl.innerHTML = "<li>Could not fetch famous birthdays.</li>";
-  }
 }
 
 // ------------------- LIVE AGE COUNTER -------------------
@@ -139,11 +110,7 @@ function startLiveCounter() {
 // ------------------- BUTTON EVENTS -------------------
 btnEl.addEventListener("click", () => {
   if (!birthdayEl.value) { alert("Please enter your date."); return; }
-
   startLiveCounter();
-
-  const data = calculateAgeData(birthdayEl.value);
-  fetchFamousBirthdays(data.month, data.day);
 });
 
 shareBtn.addEventListener("click", () => {
@@ -154,7 +121,6 @@ ${zodiacEl.innerText}
 ${planetaryEl.innerText}
 ${insightsEl.innerText}
 ${nextBirthdayEl.innerText}
-Famous birthdays loaded!
   `;
   navigator.clipboard.writeText(textToCopy);
   alert("Copied! 📋");
