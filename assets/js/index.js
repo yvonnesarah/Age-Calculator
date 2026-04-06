@@ -10,7 +10,6 @@ const lifeProgressEl = document.getElementById("lifeProgress");
 const shareBtn = document.getElementById("shareBtn");
 
 const famousBirthdaysUl = document.getElementById("famousBirthdays");
-const historyEventsUl = document.getElementById("historyEvents");
 
 let interval;
 
@@ -98,7 +97,7 @@ function getLifeProgressColor(progress) {
   return "#f44336";
 }
 
-// ------------------- DAY IN HISTORY API -------------------
+// ------------------- DAY IN HISTORY API (FAMOUS BIRTHDAYS ONLY) -------------------
 async function fetchFamousBirthdays(month, day) {
   famousBirthdaysUl.innerHTML = "<li>Loading famous birthdays...</li>";
   try {
@@ -106,34 +105,15 @@ async function fetchFamousBirthdays(month, day) {
     const res = await fetch(`https://api.dayinhistory.dev/v1/births/${monthName}/${day}/`);
     const data = await res.json();
     famousBirthdaysUl.innerHTML = "";
-    if (data.results && data.results.length > 0) {
+    if (data.results?.length) {
       data.results.forEach(item => {
         famousBirthdaysUl.innerHTML += `<li>${item.birth_year}: <strong>${item.name}</strong> — ${item.description}</li>`;
       });
     } else {
       famousBirthdaysUl.innerHTML = "<li>No famous birthdays found for this date.</li>";
     }
-  } catch (e) {
+  } catch {
     famousBirthdaysUl.innerHTML = "<li>Could not fetch famous birthdays.</li>";
-  }
-}
-
-async function fetchHistoryEvents(month, day) {
-  historyEventsUl.innerHTML = "<li>Loading historical events...</li>";
-  try {
-    const monthName = monthNames[month - 1];
-    const res = await fetch(`https://api.dayinhistory.dev/v1/events/${monthName}/${day}/`);
-    const data = await res.json();
-    historyEventsUl.innerHTML = "";
-    if (data.results && data.results.length > 0) {
-      data.results.forEach(item => {
-        historyEventsUl.innerHTML += `<li>${item.year}: ${item.title || item.description}</li>`;
-      });
-    } else {
-      historyEventsUl.innerHTML = "<li>No historical events found for this date.</li>";
-    }
-  } catch (e) {
-    historyEventsUl.innerHTML = "<li>Could not fetch historical events.</li>";
   }
 }
 
@@ -141,10 +121,8 @@ async function fetchHistoryEvents(month, day) {
 function startLiveCounter() {
   if (interval) clearInterval(interval);
   interval = setInterval(() => {
-    const birthdayValue = birthdayEl.value;
-    if (!birthdayValue) return;
-
-    const data = calculateAgeData(birthdayValue);
+    if (!birthdayEl.value) return;
+    const data = calculateAgeData(birthdayEl.value);
 
     resultEl.innerText = `Your age is ${data.ageYears} ${data.ageYears > 1 ? "years" : "year"} old`;
     breakdownEl.innerHTML = `Days: ${data.totalDays} | Weeks: ${data.totalWeeks} | Hours: ${data.totalHours} | Minutes: ${data.totalMinutes} | Seconds: ${data.totalSeconds}`;
@@ -164,10 +142,8 @@ btnEl.addEventListener("click", () => {
 
   startLiveCounter();
 
-  // Fetch API once per date selection
   const data = calculateAgeData(birthdayEl.value);
   fetchFamousBirthdays(data.month, data.day);
-  fetchHistoryEvents(data.month, data.day);
 });
 
 shareBtn.addEventListener("click", () => {
@@ -178,7 +154,7 @@ ${zodiacEl.innerText}
 ${planetaryEl.innerText}
 ${insightsEl.innerText}
 ${nextBirthdayEl.innerText}
-Famous birthdays & history loaded!
+Famous birthdays loaded!
   `;
   navigator.clipboard.writeText(textToCopy);
   alert("Copied! 📋");
