@@ -16,7 +16,7 @@ Built with HTML, CSS, and JavaScript, this project is fully responsive and optim
 * Next birthday countdown.
 * Fun insights: day of the week born, approximate sleep years, estimated number of blinks.
 * Life progress dashboard based on an 80-year lifespan.
-* Live fetching of famous birthdays and historical events for the selected date.
+* Live fetching of famous birthdays for the selected date.
 * Copy results to clipboard for sharing.
 * Fully responsive and mobile-friendly interface.
 
@@ -40,7 +40,7 @@ No installation is required. Simply open the application in your web browser.
 *  Age on other planets.
 *  Fun insights and life progress bar.
 *  Countdown to your next birthday.
-*  Famous birthdays and historical events on your birth date.
+*  Famous birthdays on your birth date.
 5. Use the 📤 Copy Results button to share your information.
 
 ## 🔗 Live Demo & Repository
