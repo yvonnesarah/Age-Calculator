@@ -43,6 +43,22 @@ const zodiacSigns = [
   { sign: "Sagittarius ♐", start: "11-22", end: "12-21", traits: "Optimistic, adventurous", element:"Fire", modality:"Mutable" },
 ];
 
+// ------------------- COMPATIBILITY DATA -------------------
+const compatibilityData = {
+  "Aries ♈": { romantic: { Leo: 90, Sagittarius: 85, Libra: 60 }, friendship: { Gemini: 80, Aquarius: 70, Taurus: 50 } },
+  "Taurus ♉": { romantic: { Virgo: 85, Capricorn: 80, Leo: 55 }, friendship: { Cancer: 75, Pisces: 70, Aries: 50 } },
+  "Gemini ♊": { romantic: { Libra: 90, Aquarius: 85, Leo: 60 }, friendship: { Aries: 80, Leo: 75, Pisces: 50 } },
+  "Cancer ♋": { romantic: { Scorpio: 90, Pisces: 85, Capricorn: 60 }, friendship: { Taurus: 75, Virgo: 70, Leo: 50 } },
+  "Leo ♌": { romantic: { Aries: 90, Sagittarius: 85, Gemini: 60 }, friendship: { Libra: 80, Aquarius: 70, Cancer: 50 } },
+  "Virgo ♍": { romantic: { Taurus: 85, Capricorn: 80, Cancer: 55 }, friendship: { Scorpio: 75, Pisces: 70, Gemini: 50 } },
+  "Libra ♎": { romantic: { Gemini: 90, Aquarius: 85, Leo: 60 }, friendship: { Aries: 80, Sagittarius: 70, Taurus: 50 } },
+  "Scorpio ♏": { romantic: { Cancer: 90, Pisces: 85, Virgo: 60 }, friendship: { Capricorn: 75, Taurus: 70, Leo: 50 } },
+  "Sagittarius ♐": { romantic: { Aries: 90, Leo: 85, Libra: 60 }, friendship: { Aquarius: 80, Gemini: 70, Virgo: 50 } },
+  "Capricorn ♑": { romantic: { Taurus: 85, Virgo: 80, Scorpio: 55 }, friendship: { Cancer: 75, Pisces: 70, Aries: 50 } },
+  "Aquarius ♒": { romantic: { Gemini: 90, Libra: 85, Sagittarius: 60 }, friendship: { Aries: 80, Leo: 70, Scorpio: 50 } },
+  "Pisces ♓": { romantic: { Cancer: 90, Scorpio: 85, Taurus: 60 }, friendship: { Virgo: 75, Capricorn: 70, Gemini: 50 } },
+};
+
 const planets = [
   { name: "Mercury ☿", period: 0.24 },
   { name: "Venus ♀", period: 0.62 },
@@ -73,6 +89,18 @@ function getZodiacCompatibility(zodiacSign) {
     "Pisces ♓": { compatible: ["Cancer ♋","Scorpio ♏"], challenging: ["Gemini ♊","Sagittarius ♐"] },
   };
   return compatibility[zodiacSign] || { compatible: [], challenging: [] };
+}
+
+function getCompatibilityInsights(zodiacSign) {
+  const data = compatibilityData[zodiacSign] || { romantic: {}, friendship: {} };
+  
+  // Convert to readable string with emojis
+  const romanticText = Object.entries(data.romantic)
+    .map(([sign, pct]) => `❤️ ${sign}: ${pct}%`).join(" | ");
+  const friendshipText = Object.entries(data.friendship)
+    .map(([sign, pct]) => `🤝 ${sign}: ${pct}%`).join(" | ");
+  
+  return { romanticText, friendshipText };
 }
 
 // ------------------- AGE CALCULATION -------------------
@@ -112,6 +140,8 @@ function calculateAgeData(birthdayValue) {
 
   const dogYears = (ageYears * 7).toFixed(1);
   const catYears = (ageYears * 6).toFixed(1);
+  const rabbitYears = (ageYears * 8).toFixed(1);
+  const horseYears = (ageYears * 3).toFixed(1);
 
   return {
     ageYears, totalDays, totalWeeks, totalHours, totalMinutes, totalSeconds,
@@ -120,24 +150,43 @@ function calculateAgeData(birthdayValue) {
     zodiacDetails: `Element: ${zodiac.element} | Modality: ${zodiac.modality}`,
     planetaryAges, planetaryLabels,
     insights: `Born on a ${dayOfWeek}. You've slept ~${sleepYears}y and blinked ~${blinkTimes} times.`,
-    lifeProgress, monthDay, dogYears, catYears
+    lifeProgress, monthDay, dogYears, catYears, rabbitYears, horseYears
   };
 }
 
 // ------------------- ADVANCED METRICS -------------------
 function calculateAdvancedMetrics(totalDays) {
   const averageBPM = 72;
+
+  // Existing metrics
   const heartbeats = Math.floor(totalDays * 24 * 60 * averageBPM);
-  const sleepHours = Math.floor(totalDays * 8);
+  const sleepHours = Math.floor(totalDays * 8);       // Avg 8h/day
   const blinkCount = totalDays * 15000;
+
+  // Fun advanced metrics
   const avgStepsPerDay = 7000;
   const stepsWalked = totalDays * avgStepsPerDay;
+
   const caloriesPerDay = 2000;
   const caloriesBurned = totalDays * caloriesPerDay;
+
+  const workingHours = Math.floor(totalDays * 8);     // Avg 8h/day working
+  const scrollingHours = Math.floor(totalDays * 2.5); // Avg 2.5h/day social media / screen
+
   const milestones = [];
-  if (totalDays >= 10000) milestones.push("🎉 10,000 days milestone reached!");
-  if (totalDays >= 50000) milestones.push("🚀 50,000 days milestone reached!");
-  return { heartbeats, sleepHours, blinkCount, stepsWalked, caloriesBurned, milestones };
+  if(totalDays >= 10000) milestones.push("🎉 10,000 days milestone reached!");
+  if(totalDays >= 50000) milestones.push("🚀 50,000 days milestone reached!");
+
+  return {
+    heartbeats,
+    sleepHours,
+    blinkCount,
+    stepsWalked,
+    caloriesBurned,
+    workingHours,
+    scrollingHours,
+    milestones
+  };
 }
 
 // ------------------- DAILY INSIGHTS -------------------
@@ -200,19 +249,33 @@ function startLiveCounter() {
     }
 
     // Zodiac + compatibility
-    const zodiacName = data.zodiac.split(" – ")[0];
-    const comp = getZodiacCompatibility(zodiacName);
-    zodiacEl.innerHTML = `
-      🌌 <b>Zodiac:</b> ${data.zodiac}<br>
-      ${data.zodiacDetails}<br><br>
-      🧠 <b>Daily Insight:</b><br>
-      ${currentInsights[0]}<br>${currentInsights[1]}<br><br>
-      💖 <b>Compatible Signs:</b> ${comp.compatible.join(", ")}<br>
-      ⚡ <b>Challenging Signs:</b> ${comp.challenging.join(", ")}
-    `;
+// Zodiac + compatibility + daily insights
+const zodiacName = data.zodiac.split(" – ")[0];
+const comp = getZodiacCompatibility(zodiacName);
+const compatInsights = getCompatibilityInsights(zodiacName);
+
+zodiacEl.innerHTML = `
+🌌 <b>Zodiac:</b> ${data.zodiac}<br>
+${data.zodiacDetails}<br><br>
+🧠 <b>Daily Insight:</b><br>
+${currentInsights[0]}<br>${currentInsights[1]}<br><br>
+💖 <b>Compatible Signs:</b> ${comp.compatible.join(", ")}<br>
+⚡ <b>Challenging Signs:</b> ${comp.challenging.join(", ")}<br><br>
+<b>💘 Romantic Compatibility:</b><br>${compatInsights.romanticText}<br>
+<b>🤝 Friendship Compatibility:</b><br>${compatInsights.friendshipText}
+`;
 
     // Insights
-    insightsEl.innerHTML=`${data.insights}<br> <br>❤️ Heartbeats: ${advMetrics.heartbeats.toLocaleString()}<br>💤 Sleep hours: ${advMetrics.sleepHours.toLocaleString()}<br>👁️ Blinks: ${advMetrics.blinkCount.toLocaleString()}<br>🐶 Dog years: ${data.dogYears}<br>🐱 Cat years: ${data.catYears}`;
+   insightsEl.innerHTML=`${data.insights}<br> <br>
+❤️ Heartbeats: ${advMetrics.heartbeats.toLocaleString()}<br>
+💤 Sleep hours: ${advMetrics.sleepHours.toLocaleString()}<br>
+👁️ Blinks: ${advMetrics.blinkCount.toLocaleString()}<br>
+⌛ Time spent working: ${advMetrics.workingHours.toLocaleString()}h<br>
+📱 Time spent scrolling: ${advMetrics.scrollingHours.toLocaleString()}h<br>
+🐶 Dog years: ${data.dogYears}<br>
+🐱 Cat years: ${data.catYears}<br>
+🐇 Rabbit years: ${data.rabbitYears}<br>
+🐎 Horse years: ${data.horseYears}`;
     advMetrics.milestones.forEach(m=>insightsEl.innerHTML+=`<br>${m}`);
 
     // Next birthday (countdown only)
