@@ -107,6 +107,11 @@ Example Age Calculator
 
 ![Screenshot](assets/images/after/age-calculator-example.png "Age Calculator Example")
 
+Example Age Calculator - Planets Age Comparison - Date - 22/06/1997
+
+![Screenshot](assets/images/after/age-calculator-example-planets-age-comparison.png "Planets Age Comparion Example")
+
+
 ## 🚀 Future Improvements
 * 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens. ✅
 * 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours. ✅
