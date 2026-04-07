@@ -4,28 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Age & Life Calculator</title>
+
+  <!-- Link to external CSS stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <!-- Main container for the app -->
   <div class="container">
+    <!-- Page heading -->
     <h1>🎂 Age & Life Calculator</h1>
 
+    <!-- User input form -->
     <div class="form">
+      <!-- Date of birth input -->
       <label for="birthday">Enter your date of birth</label>
       <input type="date" id="birthday" name="birthday">
+
+      <!-- Action buttons -->
       <button id="btn">Calculate Age</button>
       <button id="themeBtn">🌙 Toggle Theme</button>
 
-      <p id="result"></p>
-      <p id="breakdown"></p>
-      <p id="zodiac"></p>
-      <p id="planetary"></p>
-      <p id="insights"></p>
-      <p id="nextBirthday"></p>
-      <div id="birthdayHighlight"></div>
+      <!-- Output areas -->
+      <p id="result"></p> <!-- Shows calculated age -->
+      <p id="breakdown"></p> <!-- Shows detailed breakdown (days, hours, etc.) -->
+      <p id="zodiac"></p> <!-- Shows zodiac info, daily insights, and compatibility -->
+      <p id="planetary"></p> <!-- Planetary age info (optional) -->
+      <p id="insights"></p> <!-- Shows advanced metrics and fun facts -->
+      <p id="nextBirthday"></p> <!-- Countdown to next birthday -->
+      <div id="birthdayHighlight"></div> <!-- Special highlight for birthday -->
 
-      <div id="lifeStats"></div>
+      <!-- Life stats & progress -->
+      <div id="lifeStats"></div> <!-- Displays meals, sunsets, or other stats -->
 
+      <!-- Life progress bar dashboard -->
       <div class="life-dashboard">
         <div class="progress-label">Life Progress ⏳</div>
         <div class="progress-bar-container">
@@ -33,13 +44,19 @@
         </div>
       </div>
 
+      <!-- Planetary age comparison chart -->
       <h3>🪐 Planetary Age Comparison</h3>
-       <canvas id="planetChart" width="400" height="200"></canvas>
+      <canvas id="planetChart" width="400" height="200"></canvas>
 
+      <!-- Share results button -->
       <button id="shareBtn">📤 Copy Results</button>
     </div>
   </div>
+
+  <!-- Chart.js library for rendering planetary chart -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main JavaScript file -->
   <script src="assets/js/index.js"></script>
 </body>
 </html>
