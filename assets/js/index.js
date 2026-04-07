@@ -70,8 +70,18 @@ const planets = [
 ];
 
 const birthdayFunFacts = {
-  "04-07": "On this day in 1969, the Internet's first message was sent.",
-  "01-01": "New Year's Day: Many cultures celebrate with fireworks."
+  "04-07": [
+    "🌐 1969 – The Internet's first message was sent.",
+    "🎬 Jackie Chan (actor) was born on this day."
+  ],
+  "01-01": [
+    "🎆 New Year's Day celebrated worldwide.",
+    "🎤 Many iconic artists released debut albums on this date."
+  ],
+  "12-25": [
+    "🎄 Christmas is celebrated globally.",
+    "🎶 Famous holiday songs dominate charts every year."
+  ]
 };
 
 // ------------------- AGE CALCULATION -------------------
@@ -90,12 +100,22 @@ function calculateAgeData(birthdayValue) {
   const totalSeconds = Math.floor(diffMs / 1000);
 
   let nextBD = new Date(now.getFullYear(), birthdayDate.getMonth(), birthdayDate.getDate());
-  if (nextBD < now) nextBD.setFullYear(now.getFullYear() + 1);
-  const diffNextBD = nextBD - now;
-  const daysToBD = Math.floor(diffNextBD / (1000 * 60 * 60 * 24));
-  const hoursToBD = Math.floor((diffNextBD / (1000 * 60 * 60)) % 24);
-  const minutesToBD = Math.floor((diffNextBD / (1000 * 60)) % 60);
-  const secondsToBD = Math.floor((diffNextBD / 1000) % 60);
+
+if (nextBD < now) {
+  nextBD.setFullYear(now.getFullYear() + 1);
+}
+
+const diff = nextBD - now;
+
+const daysToBD = Math.floor(diff / (1000 * 60 * 60 * 24));
+const hoursToBD = Math.floor((diff / (1000 * 60 * 60)) % 24);
+const minutesToBD = Math.floor((diff / (1000 * 60)) % 60);
+const secondsToBD = Math.floor((diff / 1000) % 60);
+
+// 🎂 Birthday check
+const isBirthday =
+  now.getDate() === birthdayDate.getDate() &&
+  now.getMonth() === birthdayDate.getMonth();
 
   const monthDay = `${String(birthdayDate.getMonth()+1).padStart(2,'0')}-${String(birthdayDate.getDate()).padStart(2,'0')}`;
   const zodiac = zodiacSigns.find(z => z.start > z.end ? monthDay >= z.start || monthDay <= z.end : monthDay >= z.start && monthDay <= z.end);
@@ -113,7 +133,13 @@ function calculateAgeData(birthdayValue) {
 
   return {
     ageYears, totalDays, totalWeeks, totalHours, totalMinutes, totalSeconds,
-    nextBirthday: `${daysToBD}d ${hoursToBD}h ${minutesToBD}m ${secondsToBD}s`,
+    nextBirthdayData: {
+  days: daysToBD,
+  hours: hoursToBD,
+  minutes: minutesToBD,
+  seconds: secondsToBD,
+  isBirthday
+},
     zodiac: zodiac.sign,
 zodiacDetails: `
 Traits: ${zodiac.traits}
@@ -252,9 +278,27 @@ lifeStatsEl.innerHTML += `
 <br>📱 Screen scroll hours: ${advMetrics.scrollingHours.toLocaleString()}
 `;
     // Next birthday + fun fact
-    const funFact = birthdayFunFacts[data.monthDay] || '';
-    nextBirthdayEl.innerHTML = `Next birthday in: ${data.nextBirthday} 🎉`;
-    if (funFact) nextBirthdayEl.innerHTML += `<br>🎁 Fun Fact: ${funFact}`;
+   const bd = data.nextBirthdayData;
+
+// 🎉 Birthday Mode
+if (bd.isBirthday) {
+  nextBirthdayEl.innerHTML = `
+  🎂 <b>HAPPY BIRTHDAY!!!</b> 🎉
+  <br>Today is your special day — celebrate it! 🥳
+  `;
+} else {
+  nextBirthdayEl.innerHTML = `
+  ⏳ <b>Next Birthday Countdown</b>
+  <br>${bd.days}d ${bd.hours}h ${bd.minutes}m ${bd.seconds}s
+  `;
+}
+
+// 🎁 Fun Fact (randomized)
+const facts = birthdayFunFacts[data.monthDay];
+if (facts) {
+  const randomFact = facts[Math.floor(Math.random() * facts.length)];
+  nextBirthdayEl.innerHTML += `<br><br>🎁 <b>On your birthday:</b><br>${randomFact}`;
+}
 
     // Life stats
     lifeStatsEl.innerHTML = `🍽 Meals eaten (3/day): ${(data.totalDays*3).toLocaleString()}<br>🌅 Sunsets seen: ${data.totalDays.toLocaleString()}`;
