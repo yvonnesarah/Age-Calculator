@@ -103,14 +103,17 @@ After Design
 Age Calculator Interface
 ![Screenshot](assets/images/after/age-calculator.png "Age Calculator")
 
-Example Age Calculator
+Age Calculator Interface - Black Theme
+![Screenshot](assets/images/after/age-calculator-black-theme.png "Age Calculator - Black Theme")
 
+Age Calculator Interface - Responsive
+![Screenshot](assets/images/after/age-calculator-black-theme-responsive.png "Age Calculator -  Responsive")
+
+Example Age Calculator
 ![Screenshot](assets/images/after/age-calculator-example.png "Age Calculator Example")
 
 Example Age Calculator - Planets Age Comparison - Date - 22/06/1997
-
 ![Screenshot](assets/images/after/age-calculator-example-planets-age-comparison.png "Planets Age Comparion Example")
-
 
 ## 🚀 Future Improvements
 * 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens. ✅
