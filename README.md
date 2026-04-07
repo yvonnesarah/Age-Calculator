@@ -17,15 +17,6 @@ Built using HTML, CSS, and JavaScript, this app is fully responsive and optimize
 * Internet connection (for CDN libraries like Chart.js)
 
 ## 📋 Features
-* Real-time age calculation with breakdown: years, months, days, hours, minutes, seconds.
-* Zodiac sign with personality traits.
-* Age on other planets (Mercury, Venus, Mars, Jupiter, Saturn).
-* Next birthday countdown.
-* Fun insights: day of the week born, approximate sleep years, estimated number of blinks.
-* Life progress dashboard based on an 80-year lifespan.
-* Copy results to clipboard for sharing.
-* Fully responsive and mobile-friendly interface.
-
 ⏱ Real-Time Age Engine
 * Live updating age (years, days, hours, minutes, seconds)
 * Continuous second-by-second updates
@@ -38,12 +29,7 @@ Built using HTML, CSS, and JavaScript, this app is fully responsive and optimize
 * Compatibility (romantic ❤️ & friendship 🤝)
 
 🪐 Planetary Age Calculator
-* Age on:
-Mercury ☿
-Venus ♀
-Mars ♂
-Jupiter ♃
-Saturn ♄
+* Age on: Mercury ☿, Venus ♀, Mars ♂, Jupiter ♃, Saturn ♄
 * Interactive bar chart powered by Chart.js
 
 🎉 Birthday Tracker
@@ -56,19 +42,8 @@ Saturn ♄
 
 🧠 Smart Life Insights
 * Day of the week you were born
-* Estimated:
-❤️ Heartbeats
-😴 Sleep time
-👁️ Blinks
-🚶 Steps walked
-🔥 Calories burned
-💼 Working hours
-📱 Screen time
-* Animal age equivalents:
-🐶 Dog years
-🐱 Cat years
-🐇 Rabbit years
-🐎 Horse years
+* Estimated:❤️ Heartbeats, 😴 Sleep time, 👁️ Blinks, 🚶 Steps walked, 🔥 Calories burned, 💼 Working hours,📱Screen time
+* Animal age equivalents:🐶 Dog years, 🐱 Cat years, 🐇 Rabbit years, 🐎 Horse years
 
 📈 Extra Fun Stats
 * Total days, weeks, hours, minutes, seconds lived
@@ -84,10 +59,7 @@ Saturn ♄
 * Saved preference using localStorage
 
 📱 Responsive Design
-* Optimized for:
-Mobile
-Tablet
-Desktop
+* Optimized for:Mobile, Tablet, Desktop
 
 ## 💻 Technologies Used
 This project was built using:
