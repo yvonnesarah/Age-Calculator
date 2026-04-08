@@ -1,4 +1,4 @@
-# Age-Calculator
+# Age & Life Calculator 
 
 ## 📌 Description
 The Age & Life Calculator is a dynamic, real-time web application that calculates your age with extreme precision and presents rich, interactive insights about your life.
