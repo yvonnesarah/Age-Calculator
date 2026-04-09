@@ -123,10 +123,12 @@ Example Age Calculator - Planets Age Comparison - Date - 22/06/1997
 ![Screenshot](assets/images/after/age-calculator-example-planets-age-comparison.png "Planets Age Comparion Example")
 
 ## 🗺️ Roadmap (Planned Features)
+To enhance the functionality and user experience of the Age & Life Calculator, the following improvements are planned:
 * 📱 Enhanced Mobile Experience – Improve layout and interactions on smaller screens. ✅
 * 📊 Detailed Age Breakdown – Show additional info like total days lived, weeks, or hours. ✅
 
 ## 🚀 Upcoming Features
+These features aim to provide an interactive, personalized, and visually engaging experience for tracking your age, life milestones, and planetary insights:
 * 🎯 Live Age Counter – Continuously updates your age every second, including years, days, weeks, hours, minutes, and seconds. ✅
 * 📅 Next Birthday Countdown – Displays a real-time countdown to your next birthday (days, hours, minutes, seconds). ✅
 * 🎉 Zodiac System + Personality Insights – Automatically detects your zodiac sign, shows traits, element, modality, and daily insights. ✅
