@@ -87,7 +87,7 @@ No installation is required. Simply open the application in your web browser.
 Application can be viewed here: 
 * [Live](https://yvonnesarah.github.io/Age-Life-Calculator/)
 
-* [Repository](https://yvonnesarah.github.io/Age-Life-Calculator/)
+* [Repository](https://github.com/yvonnesarah/Age-Life-Calculator)
 
 ## 🖼 Screenshot(S)
 Before Design
